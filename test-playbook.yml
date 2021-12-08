@@ -1,0 +1,166 @@
+---
+################################################################################
+#                                  Jeff Kala                                   #
+#                     Network Optimization and Automation                      #
+################################################################################
+
+- name: 'DCNM Ansible Modules Saving Carpal Tunnel Since 2019'
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    # - name: "defaulting interfaces"
+    #   dcnm_default_interface:
+    #     base_url: https://dcnm-lab.dev.schwab.com
+    #     username: ad.jeff.kala # "{{ ansible_user }}"
+    #     password: "{{ ansible_password }}"
+    #     fabric_name: PDC1-LAB-Fabric
+    #     switches:
+    #       - name: rlf14lab
+    #         interfaces:
+    #           - Ethernet1/2
+    #       - name: rlf15lab
+    #         interfaces:
+    #           - Ethernet1/2
+    # - name: "create server vpc"
+    # dcnm_server_vpc:
+    #   base_url: https://dcnm-lab.dev.schwab.com
+    #   username: ad.jeff.kala # "{{ ansible_user }}"
+    #   password: "{{ ansible_password }}"
+    #   fabric_name: PDC1-LAB-Fabric
+    #   vpc_info:
+    #     - vpc_id: 1200
+    #       policy: trunk
+    #       switch_one:
+    #         name: rlf14lab
+    #         po_description: test_desc_rlf14lab
+    #         member_interface: Ethernet1/20
+    #       switch_two:
+    #         name: rlf15lab
+    #         po_description: test_desc_rlf15lab
+    #         member_interface: Ethernet1/20
+    #     - vpc_id: 1201
+    #       policy: access
+    #       switch_one:
+    #         name: rlf14lab
+    #         po_description: test2_desc_rlf14lab
+    #         member_interface: Ethernet1/21
+    #       switch_two:
+    #         name: rlf15lab
+    #         po_description: test2_desc_rlf15lab
+    #         member_interface: Ethernet1/21
+    #- name: "Add/Update Template"
+    #  dcnm_template:
+    #    base_url: https://dcnm-lab.dev.schwab.com
+    #    username: ad.jeff.kala #"{{ ansible_user }}"
+    #    password: "{{ ansible_password }}"
+    #    fabric_name: PDC1-LAB-Fabric
+    #    backout: False
+    #    ise_template:
+    #      name:
+    #        - rlf14lab
+    #        - rlf15lab
+    #      ise_server_ip: 1.1.1.1
+    #      ise_secret: '"test_secret"'
+    #      timeout: 1
+    - name: 'Shut/No Shut List of Interfaces'
+      dcnm_interface_state:
+        base_url: https://dcnm-lab.dev.schwab.com
+        username: '{{ ansible_user }}'
+        password: '{{ ansible_password }}'
+        fabric_name: PDC1-LAB-Fabric
+        interfaces:
+          - switch: rlf14lab
+            state: enable
+            interfaces:
+              - Ethernet1/20
+              - Ethernet1/21
+          - switch: rlf15lab
+            state: enable
+            interfaces:
+              - Ethernet1/20
+              - Ethernet1/21
+    #    - name: "Cisco DCNM Interface Policy Change"
+    #      dcnm_interface_policy:
+    #        base_url: https://dcnm-lab.dev.schwab.com
+    #        username: ad.jeff.kala #"{{ ansible_user }}"
+    #        password: "{{ ansible_password }}"
+    #        fabric_name: PDC1-LAB-Fabric
+    #        policy:
+    #          - name: int_trunk_host_11_1
+    #            switch:
+    #              - name: rlf14lab
+    #                interfaces:
+    #                  - Ethernet1/20
+    #                  - Ethernet1/21
+    #          - name: int_access_host_11_1
+    #            switch:
+    #              - name: rlf14lab
+    #                interfaces:
+    #                  - Ethernet1/22
+    #                  - Ethernet1/23
+    #              - name: rlf15lab
+    #                interfaces:
+    #                  - Ethernet1/22
+    #                  - Ethernet1/23
+    #          - name: int_routed_host_11_1
+    #            switch:
+    #              - name: rlf14lab
+    #                interfaces:
+    #                  - Ethernet1/24
+    #    - name: "Cisco DCNM Interface Description"
+    #      dcnm_interface_description:
+    #        base_url: https://dcnm-lab.dev.schwab.com
+    #        username: ad.jeff.kala #"{{ ansible_user }}"
+    #        password: "{{ ansible_password }}"
+    #        fabric_name: PDC1-LAB-Fabric
+    #        interfaces:
+    #          - switch: rlf14lab
+    #            interface: Ethernet1/22
+    #            desc: desc_by_ansible
+    #          - switch: rlf14lab
+    #            interface: Ethernet1/23
+    #            desc: desc_by_ansible
+    #          - switch: rlf15lab
+    #            interface: Ethernet1/22
+    #            desc: desc_by_ansible
+    #          - switch: rlf15lab
+    #            interface: Ethernet1/23
+    #            desc: desc_by_ansible
+    #    - name: "Cisco DCNM create network"
+    #      dcnm_create_network:
+    #        base_url: https://dcnm-lab.dev.schwab.com
+    #        username: ad.jeff.kala #"{{ ansible_user }}"
+    #        password: "{{ ansible_password }}"
+    #        fabric_name: PDC1-LAB-Fabric
+    #        networks:
+    #          - subnet: 192.168.66.0/24
+    #            vlan: 966
+    #          - subnet: 192.168.67.0/24
+    #            vlan: 967
+    #- name: "Cisco DCNM overlay attach"
+    #  dcnm_attach_overlay:
+    #    base_url: https://dcnm-lab.dev.schwab.com
+    #    username: ad.jeff.kala #"{{ ansible_user }}"
+    #    password: "{{ ansible_password }}"
+    #    fabric_name: PDC1-LAB-Fabric
+    #    backout: True
+    #    networks:
+    #      - subnet: 192.168.90.0/24
+    #        vlan: 990
+    #        switch:
+    #          - name: rlf14lab
+    #            interfaces:
+    #              - Ethernet1/2
+    #          - name: rlf15lab
+    #            interfaces:
+    #              - Ethernet1/2
+    #- subnet: 192.168.67.0/24
+    #  vlan: 967
+    #  switch:
+    #    - name: rlf14lab
+    #      interfaces:
+    #        - Ethernet1/21
+    #    - name: rlf15lab
+    #      interfaces:
+    #        - Ethernet1/21
