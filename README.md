@@ -5,21 +5,20 @@ You can clone this repo and create a playbook. Or you can just grab the library 
 ### Servers
 
 ```
-noa-1.cdc.schwab.com (alias) -> svm5124cdc.cdc.schwab.com
-noa-2.cdc.schwab.com (alias) -> svm5124bdc.cdc.schwab.com
+login to server
 ```
 
 Please activate production python virtual environment prior to executing the scripts
 
-`source /opt/venvs/ansible_prod/bin/activate`
+`source /opt/venvs/ansible_prod/bin/activate`  if not running python3
 
 you shell prompt should update with the name of the virtual env:
 
-`(ansible_prod) svm5124bdc:~$`
+
 
 ### Prereqs:
 
-requries dcnm_core module (NOA version), **already installed on noa-1, noa-2 servers**<br>
+requries dcnm_core module (NOA version), **already installed on servers**<br>
 
 <br>
 <br>
@@ -37,7 +36,7 @@ source /opt/venvs/ansible_prod/bin/activate
 Step 2.
 
 ```bash
-git clone https://bitbucket.schwab.com/scm/ad00007507/noa_dcnm_ansible_module.git
+push latest
 ```
 
 Step 3.
@@ -53,7 +52,7 @@ How to setup your "ANSIBLE PLAY"<br>
 
 ```yaml
 ---
-- name: 'DCNM Ansible Modules Saving Carpal Tunnel Since 2019'
+- name: 'DCNM Ansible Modules'
   hosts: localhost
   gather_facts: false
 
@@ -71,7 +70,7 @@ How to setup your "ANSIBLE PLAY"<br>
     base_url: https://dcnm-lab.dev.schwab.com
     username: '{{ ansible_user }}'
     password: '{{ ansible_password }}'
-    fabric_name: PDC1-LAB-Fabric
+    fabric_name: Fabric
     networks:
       - subnet: 192.168.66.0/24
         vlan: 966
@@ -85,10 +84,10 @@ How to setup your "ANSIBLE PLAY"<br>
 ```yaml
 - name: "Cisco DCNM overlay attach"
   dcnm_attach_overlay:
-    base_url: https://dcnm-lab.dev.schwab.com
+    base_url: https://dcnm-lab.dev.com
     username: "{{ ansible_user }}"
     password: "{{ ansible_password }}"
-    fabric_name: PDC1-LAB-Fabric
+    fabric_name: Fabric
     backout: True
     networks:
       - subnet: 192.168.90.0/24
@@ -116,10 +115,10 @@ How to setup your "ANSIBLE PLAY"<br>
 ```yaml
 - name: 'Cisco DCNM Interface Description'
   dcnm_interface_description:
-    base_url: https://dcnm-lab.dev.schwab.com
+    base_url: https://dcnm-lab.dev.com
     username: '{{ ansible_user }}'
     password: '{{ ansible_password }}'
-    fabric_name: PDC1-LAB-Fabric
+    fabric_name: Fabric
     interfaces:
       - switch: rlf14lab
         interface: Ethernet1/22
@@ -278,6 +277,5 @@ How to setup your "ANSIBLE PLAY"<br>
       timeout: 1
 ```
 
-### Author(s)
 
-    Jeff Kala (jeff.kala@schwab.com)
+    
