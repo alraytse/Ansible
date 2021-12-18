@@ -2,13 +2,13 @@
 
 """
     __data__ = '7/7/2020'
-    __author__ = 'jeff.kala@schwab.com, jose.lima@schwab.com'
+    
 
 """
 ANSIBLE_METADATA = {
     "metadata_version": "1.1",
     "status": ["preview"],
-    "supported_by": "jeff.kala@schwab.com, jose.lima@schwab.com",
+ 
 }
 
 DOCUMENTATION = """
@@ -21,7 +21,7 @@ short_description: Attach overlay (vxlan profile) onto a switch(pair)/ports or B
 EXAMPLES = """
 - name: "Cisco DCNM overlay attach"
     dcnm_attach_overlay:
-    base_url: https://dcnm-lab.dev.schwab.com
+    base_url: https://dcnm-lab.com
     username: ad.jeff.kala #"{{ ansible_user }}"
     password: "{{ ansible_password }}"
     fabric_name: PDC1-LAB-Fabric
@@ -61,7 +61,7 @@ try:
 except ImportError:
     print("\nmissing dcnm core module, please install first:\n")
     print(
-        "python3 -m pip install git+https://bitbucket.schwab.com/scm/ens/dcnm_core.git"
+        "python3 -m pip install git+https://bitbucket.com/scm/ens/dcnm_core.git"
     )
     exit(1)
 
