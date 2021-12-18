@@ -2,15 +2,13 @@
 
 """
     __data__ = '7/7/2020'
-    __author__ = 'jeff.kala@schwab.com, jose.lima@schwab.com'
+    
 
 """
 ANSIBLE_METADATA = {
     "metadata_version": "1.1",
     "status": ["preview"],
-    "supported_by": "jeff.kala@schwab.com, jose.lima@schwab.com",
-}
-
+    
 DOCUMENTATION = """
 ---
 module: dcnm_interface_state
@@ -21,7 +19,7 @@ short_description: Shut/No Shut List of Interfaces
 EXAMPLES = """
 - name: "Shut/No Shut List of Interfaces"
     dcnm_interface_state:
-    base_url: https://dcnm-lab.dev.schwab.com
+    base_url: https://dcnm-lab.dev.com
     username: "{{ ansible_user }}"
     password: "{{ ansible_password }}"
     fabric_name: PDC1-LAB-Fabric
@@ -43,7 +41,7 @@ try:
 except ImportError:
     print("\nmissing dcnm core module, please install first:\n")
     print(
-        "python3 -m pip install git+https://bitbucket.schwab.com/scm/ens/dcnm_core.git"
+        "python3 -m pip install git+https://bitbucket.com/scm/ens/dcnm_core.git"
     )
     exit(1)
 
