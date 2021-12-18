@@ -23,7 +23,7 @@ requries dcnm_core module (NOA version), **already installed on servers**<br>
 <br>
 <br>
 
-Right now if you use the NOA-1/NOA-2 Production Server the use the ansible_prod virtualenv which has all dependcies installed.<br>
+Right now if you use the Production Server the use the ansible_prod virtualenv which has all dependcies installed.<br>
 
 Step 1.
 
@@ -67,7 +67,7 @@ How to setup your "ANSIBLE PLAY"<br>
 ```yaml
 - name: 'Cisco DCNM create network'
   dcnm_create_network:
-    base_url: https://dcnm-lab.dev.schwab.com
+    base_url: https://dcnm-lab.dev.com
     username: '{{ ansible_user }}'
     password: '{{ ansible_password }}'
     fabric_name: Fabric
@@ -209,7 +209,7 @@ How to setup your "ANSIBLE PLAY"<br>
 ```yaml
 - name: 'Shut/No Shut List of Interfaces'
   dcnm_interface_state:
-    base_url: https://dcnm-lab.dev.schwab.com
+    base_url: https://dcnm-lab.dev.com
     username: '{{ ansible_user }}'
     password: '{{ ansible_password }}'
     fabric_name: PDC1-LAB-Fabric
@@ -231,7 +231,7 @@ How to setup your "ANSIBLE PLAY"<br>
 ```yaml
 - name: 'create server vpc'
   dcnm_server_vpc:
-    base_url: https://dcnm-lab.dev.schwab.com
+    base_url: https://dcnm-lab.dev.com
     username: '{{ ansible_user }}'
     password: '{{ ansible_password }}'
     fabric_name: PDC1-LAB-Fabric
@@ -263,7 +263,7 @@ How to setup your "ANSIBLE PLAY"<br>
 ```yaml
 - name: 'Add/Update Template'
   dcnm_template:
-    base_url: https://dcnm-lab.dev.schwab.com
+    base_url: https://dcnm-lab.dev.com
     username: '{{ ansible_user }}'
     password: '{{ ansible_password }}'
     fabric_name: PDC1-LAB-Fabric
