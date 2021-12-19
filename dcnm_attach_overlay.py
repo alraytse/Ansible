@@ -22,7 +22,7 @@ EXAMPLES = """
 - name: "Cisco DCNM overlay attach"
     dcnm_attach_overlay:
     base_url: https://dcnm-lab.com
-    username: ad.jeff.kala #"{{ ansible_user }}"
+    username: ad.alex #"{{ ansible_user }}"
     password: "{{ ansible_password }}"
     fabric_name: PDC1-LAB-Fabric
     backout: False
