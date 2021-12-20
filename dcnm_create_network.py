@@ -1,14 +1,12 @@
 #!/usr/bin/env python
 
 """
-    __data__ = '7/7/2020'
-    __author__ = 'jeff.kala@schwab.com, jose.lima@schwab.com'
+
 
 """
 ANSIBLE_METADATA = {
     "metadata_version": "1.1",
     "status": ["preview"],
-    "supported_by": "jeff.kala@schwab.com, jose.lima@schwab.com",
 }
 
 DOCUMENTATION = """
@@ -21,7 +19,7 @@ short_description: Create Networks in DCNM with Ansible
 EXAMPLES = """
 - name: "Cisco DCNM create network"
     dcnm_create_network:
-    base_url: https://dcnm-lab.dev.schwab.com
+    base_url: https://dcnm-lab.dev.com
     username: "{{ ansible_user }}"
     password: "{{ ansible_password }}"
     fabric_name: PDC1-LAB-Fabric
@@ -40,7 +38,7 @@ try:
 except ImportError:
     print("\nmissing dcnm core module, please install first:\n")
     print(
-        "python3 -m pip install git+https://bitbucket.schwab.com/scm/ens/dcnm_core.git"
+        "python3 setup.py sdist bdist_wheel"
     )
     exit(1)
 
