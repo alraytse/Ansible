@@ -17,7 +17,7 @@ short_description: Warning!! This will default interface to an access port. It W
 EXAMPLES = """
 - name: "defaulting interfaces"
   dcnm_default_interface:
-    base_url: https://dcnm-lab.dev.schwab.com
+    base_url: https://dcnm-lab.dev.com
     username: ad.jeff.kala # "{{ ansible_user }}"
     password: "{{ ansible_password }}"
     fabric_name: PDC1-LAB-Fabric
