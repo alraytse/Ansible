@@ -61,7 +61,7 @@ try:
 except ImportError:
     print("\nmissing dcnm core module, please install first:\n")
     print(
-        "python3 -m pip install git+https://bitbucket.com/scm/ens/dcnm_core.git"
+        "python3 setup.py sdist bdist_wheel"
     )
     exit(1)
 
