@@ -1,0 +1,122 @@
+
+Skip to content
+
+    mckesson
+    network-mt-eos
+
+Repository navigation
+
+    Code
+    Issues
+    Pull requests6 (6)
+    Agents
+    Actions
+    Projects
+    Security and quality
+    Insights
+
+Establish INET VRF reachability for MT and USON SD-WAN VRT appliances at DDA11 - #108#108
+Merged
+rdixon-mckesson
+merged 1 commit into
+main
+from
+dda11-inet-sdwan-mt-uson-vrt-l3-20260831
+last month
++40Lines changed: 40 additions & 0 deletions
+Conversation3 (3)
+Commits1 (1)
+Checks10 (10)
+Files changed2 (2)
+Pull request toolbar
+Merged
+Establish INET VRF reachability for MT and USON SD-WAN VRT appliances at DDA11
+#108
+rdixon-mckesson
+merged 1 commit into
+main
+from
+dda11-inet-sdwan-mt-uson-vrt-l3-20260831
+0 / 2 viewed0 of 2 files viewed
+File tree
+
+    ansible/host_vars
+        dda11_r201_inet01.yml
+        dda11_r202_inet02.yml
+
+Add L3 P2P interfaces Eth11/12/21/22 on R201-INET01 & R202-INET02 for MT VRT01/VRT02 and USON-VRT01/VRT02 in INET VRF
+adolanmills
+adolanmills
+committed
+last month
+·
+commit
+e647426
+‎ansible/host_vars/dda11_r201_inet01.yml‎
++20Lines changed: 20 additions & 0 deletions
+Original file line number	Diff line number	Diff line change
+      speed: forced 1000full
+      ip: 143.112.226.0/31
+      mtu: 1500
+    - name: Ethernet11
+      description: " DDA11-R201-VRT01 g2/0"
+      speed: forced 1000full
+      ip: 143.112.226.4/31
+      mtu: 1500
+    - name: Ethernet12
+      description: " DDA11-R202-VRT02 g2/0"
+      speed: forced 1000full
+      ip: 143.112.226.8/31
+      mtu: 1500
+    - name: Ethernet20
+      description: " DDA11-R201-USON-ERT01 twan0"
+      speed: forced 1000full
+      ip: 143.112.227.0/31
+      mtu: 1500
+    - name: Ethernet21
+      description: " DDA11-R201-USON-VRT01 g2/0"
+      speed: forced 1000full
+      ip: 143.112.227.4/31
+      mtu: 1500
+    - name: Ethernet22
+      description: " DDA11-R202-USON-VRT02 g2/0"
+      speed: forced 1000full
+      ip: 143.112.227.8/31
+      mtu: 1500
+    - name: Vlan3600
+      vlan_name: INET_FW03_04
+      description: "INET: FW03/04"
+‎ansible/host_vars/dda11_r202_inet02.yml‎
++20Lines changed: 20 additions & 0 deletions
+Original file line number	Diff line number	Diff line change
+      speed: forced 1000full
+      ip: 143.112.226.2/31
+      mtu: 1500
+    - name: Ethernet11
+      description: " DDA11-R201-VRT01 g2/1"
+      speed: forced 1000full
+      ip: 143.112.226.6/31
+      mtu: 1500
+    - name: Ethernet12
+      description: " DDA11-R202-VRT02 g2/1"
+      speed: forced 1000full
+      ip: 143.112.226.10/31
+      mtu: 1500
+    - name: Ethernet20
+      description: " DDA11-R202-USON-ERT02 twan0"
+      speed: forced 1000full
+      ip: 143.112.227.2/31
+      mtu: 1500
+    - name: Ethernet21
+      description: " DDA11-R201-USON-VRT01 g2/1"
+      speed: forced 1000full
+      ip: 143.112.227.6/31
+      mtu: 1500
+    - name: Ethernet22
+      description: " DDA11-R202-USON-VRT02 g2/1"
+      speed: forced 1000full
+      ip: 143.112.227.10/31
+      mtu: 1500
+    - name: Vlan3600
+      vlan_name: INET_FW03_04
+      description: "INET: FW03/04"
